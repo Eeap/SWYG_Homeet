@@ -23,8 +23,8 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .exposedHeaders("X-AUTH-TOKEN")
-                .allowedOrigins("http://0.0.0.0:3000")
+                .exposedHeaders("*")
+                .allowedOrigins("http://192.168.0.11:3000")
                 .allowedHeaders("*")
                 .allowedMethods("*")
                 .allowCredentials(true);

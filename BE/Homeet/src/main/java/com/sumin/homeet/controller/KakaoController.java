@@ -17,17 +17,17 @@ import java.util.Map;
 public class KakaoController {
     private final KakaoService kakaoService;
     @GetMapping("/kakao")
-    public ResponseEntity<Map<String,String>> kakaoClient(@RequestParam String code) {
-        System.out.println("code = " + code);
+    public ResponseEntity<Map<String,String>> kakaoClient(@RequestParam String token) {
+        System.out.println("token = " + token);
         HttpHeaders httpHeaders = new HttpHeaders();
-        String accessToken = kakaoService.getKakaoAccessToken(code);
-        List<String> token = kakaoService.getKakaoUser(accessToken);
+//        String accessToken = kakaoService.getKakaoAccessToken(code);
+        List<String> data = kakaoService.getKakaoUser(token);
 
         Map<String,String> msg = new HashMap<>();
-        httpHeaders.add("X-AUTH-TOKEN", token.get(0));
-        msg.put("token", token.get(0));
-        msg.put("userId", token.get(1));
-        msg.put("nickname", token.get(2));
+        httpHeaders.add("X-AUTH-TOKEN", data.get(0));
+        msg.put("token", data.get(0));
+        msg.put("userId", data.get(1));
+        msg.put("nickname", data.get(2));
         return ResponseEntity.ok().headers(httpHeaders).body(msg);
 
     }
