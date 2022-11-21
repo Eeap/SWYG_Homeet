@@ -112,7 +112,7 @@
 <!-- LICENSE -->
 
 ## 라이센스
-
+MIT라이센스가 적용되었습니다. [`LICENSE`](https://github.com/Eeap/SWYG_Homeet/blob/master/LICENSE) 파일을 통해 확인할 수 있습니다.
 
 <!-- CONTACT -->
 
